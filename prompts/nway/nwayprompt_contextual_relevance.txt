@@ -1,0 +1,183 @@
+You are an expert evaluator tasked with comparing the quality of follow-up questions in AI chatbot conversations, specifically evaluating them regarding their **Contextual Relevance**.
+
+## Input Information
+
+You will receive:
+- **{user_question}**: The original question asked by the user
+- **{answer}**: The AI model's response to the user's question
+- **{candidates}**: A list of follow-up question candidates to evaluate, each containing:
+  - **id**: Unique identifier for the candidate (e.g., "candidate_A", "candidate_B")
+  - **text**: The follow-up question text
+
+**CRITICAL**: You must use the EXACT follow-up questions and IDs provided in the input. Do NOT create or alter any follow-up questions or IDs.
+
+## Your Task
+
+Evaluate all follow-up question candidates and determine which ONE better aligns with the specified criterion, considering:
+1. The conversation context (user_question + model answer)
+2. The user's apparent intent and needs
+3. **Most critically**: Which follow-up question best embodies the qualities of 'Contextual Relevance' - maintaining consistency with the previous conversation, topic, and user intent
+
+You must select a single winner from the candidates and provide a clear reason for your choice.
+
+## Understanding Follow-up Questions
+
+Follow-up questions in AI chatbot interfaces are:
+- **Naturally concise**: Typically 5-15 words, designed for quick user selection
+- **Purpose-driven**: Meant to guide users to explore relevant aspects they might not have considered
+- **Context-dependent**: Build directly on the previous Q&A exchange
+- **User-friendly**: Written in accessible language, avoiding technical jargon unless necessary
+
+### Universal Requirements for Valid Follow-up Questions
+
+**CRITICAL**: Before evaluating the specific criterion, check these baseline requirements. Questions that fail these checks should be heavily penalized regardless of other qualities:
+
+### 1. **Length and Complexity Requirements**
+- **Must be concise**: Maximum of 2 short sentences, typically 5-20 words
+- **Maximum length**: Should not exceed 25 words total
+- **Complexity check**: Must be scannable and comprehensible at a glance
+- **Penalty**: Questions that are excessively long, overly complex, or difficult to scan should rarely win unless all alternatives are significantly worse in the criterion being evaluated
+
+### 2. **Completeness Requirements**
+- **Must be self-contained**: No blanks, placeholders, or templates requiring user input
+- **Examples of invalid formats**:
+  - "Can you help me with [specific issue]?"
+  - "What about [describe your situation]?"
+  - "How does this apply to your [insert context]?"
+- **Must be directly usable**: Should function as-is without any modification
+- **Penalty**: Incomplete questions with templates or blanks should almost never win
+
+**Note**: A question that fails these universal requirements can only win if all other alternatives are exceptionally poor in the specific criterion being evaluated.
+
+## Evaluation Criteria Details
+
+### Criteria Definition
+
+**Criteria Name**: Contextual Relevance
+
+**Definition**: This criterion evaluates whether the follow-up question maintains consistency with the previous conversation, topic, and user intent. This ensures the communication flow remains logical and focused, preventing the discussion from becoming disjointed or off-topic.
+
+**Contextualized Examples**: This criterion may include, but is not limited to, the following examples:
+- **Topic Continuity:** Does the question connect seamlessly with previous exchanges or topics?
+- **Goal Alignment:** Is it aligned with the user's intentions and the overall purpose of the conversation?
+- **Focus Maintenance:** Does it help keep the discussion on track and centered around the main topic?
+- **Context Awareness:** Does it naturally build on earlier statements or background information?
+- **Avoidance of Digression:** Does it prevent unnecessary deviations from the core subject?
+
+### Contextual Relevance Quality Dimensions
+
+When comparing questions, assess these quality dimensions to guide your decisions rather than assigning scores:
+
+**Excellence in Contextual Relevance shows:**
+- Direct building on specific details mentioned in prior exchange
+- Perfect alignment with stated goals and maintaining momentum toward them
+- References to previous points while advancing the discussion
+- Clear understanding of conversation trajectory
+
+**Strong Contextual Relevance shows:**
+- Clear relation to main topic and conversation goals
+- Awareness of context through appropriate follow-up
+- Maintains focus while exploring relevant aspects
+- Natural progression from previous exchange
+
+**Adequate Contextual Relevance shows:**
+- Relates to general topic but may miss specific context
+- Some connection to goals but not optimally focused
+- Acceptable continuity with minor drift
+- Basic understanding of discussion flow
+
+**Weak Contextual Relevance shows:**
+- Weak connection to previous discussion
+- Ignores important context or previously provided information
+- Introduces tangential topics that dilute focus
+- Minimal awareness of conversation goals
+
+**Very Weak Contextual Relevance shows:**
+- Completely abandons the topic or conversation thread
+- No apparent connection to previous exchanges
+- Introduces entirely unrelated subjects
+- Demonstrates no awareness of context or goals
+
+**Key Evaluation Points:**
+- Does the question acknowledge and build upon previous information?
+- Is it aligned with the user's stated or implied objectives?
+- Does it maintain appropriate topical boundaries?
+- Would this question feel natural and logical in the conversation flow?
+- Can you trace a clear connection from the conversation to this question?
+- Does it respect the scope and direction established in the conversation?
+
+**Example Comparisons:**
+- A: "What's your favorite color?" vs B: "How does this relate to my project timeline?" → B wins (completely unrelated vs maintains focus)
+- A: "What are the accuracy rates for this specific diagnosis?" vs B: "Can AI write poetry?" → A wins (directly relevant to AI healthcare discussion vs tangential)
+- A: "Given the 95% accuracy you mentioned, what happens with the 5% of misdiagnosed cases? vs B: "What are other applications of AI?" → A wins (specific detail reference vs general connection)
+
+**Remember**: Focus on how well each question embodies Contextual Relevance. Do not let excellence in other areas influence your evaluation for this specific criterion.
+
+## Comparison Process
+
+1. **Read all inputs carefully**, especially the user's question and the model's answer, understanding the full conversational context
+2. **Understand the evaluation criterion**, its requirements and examples
+3. **Analyze ALL follow-up question candidates** against the Contextual Relevance criterion
+4. **Compare their relative strengths**:
+   - Which best maintains the conversation thread?
+   - Which shows the best awareness of context and user goals?
+   - Which most naturally builds on the previous exchange?
+   - Which keeps the discussion most focused and on-track?
+5. **Determine the single winner** based on which best fulfills the criterion, preparing to explain:
+   - Key strengths of the winning question
+   - Critical differences that set it apart from the others
+   - Why it is superior for contextual relevance compared to all alternatives
+6. **Consider these differentiators**:
+   - Specificity to the conversation context
+   - Alignment with user's goals
+   - Natural flow from previous points
+   - Avoidance of tangential topics
+
+### Handling Apparent Ties
+
+**CRITICAL: You must select exactly ONE winner.** When multiple questions appear similar in quality, use these tie-breakers in order:
+
+1. **Specific Context Reference**: The question that references specific details from the conversation wins
+2. **Goal Alignment**: The question better aligned with the user's stated or implied objectives wins
+3. **Natural Flow**: The question that feels more like a natural next step in the conversation wins
+4. **Focus Precision**: The question that maintains tighter focus on the established topic wins
+5. **Clarity**: If all else equal, the clearer, more direct question wins
+
+Remember: Even questions at similar quality levels have differences. Your job is to find and articulate these differences to select the single best candidate.
+
+## Output Format
+
+```json
+{
+  "candidates": [
+    {
+      "id": "[copy exact id from candidate 1]",
+      "text": "[copy exact text from candidate 1]"
+    },
+    {
+      "id": "[copy exact id from candidate 2]",
+      "text": "[copy exact text from candidate 2]"
+    }
+    // ... include all candidates provided in the input
+  ],
+  "winner": "[the exact ID of the winning candidate]",
+  "reason": "[Detailed but concise justification explaining: (1) Key strengths of the winning question regarding Contextual Relevance, (2) How it compares to and differs from the other candidates, (3) Specific elements that made it superior to all alternatives, (4) Why the other candidates fell short in comparison]"
+}
+```
+
+**CRITICAL**: Use the EXACT values from the input data.
+
+**Example**: If the candidates have IDs "candidate_A", "candidate_B", "candidate_C", etc., and the first candidate wins, then winner should be "candidate_A".
+
+**WARNING**: The winner field MUST contain the exact candidate ID string, not "candidate 1", "candidate A", "the first option", or any other label.
+
+## Final Reminders
+
+- **Be decisive**: You MUST choose exactly ONE winner from the candidates. No ties are acceptable.
+- **Find the key differences**: Even similar questions have distinguishing factors that make one superior
+- **Stay focused**: Evaluate ONLY on Contextual Relevance, not other qualities
+- **Be specific**: Vague comparisons like "more relevant" are insufficient
+- **Consider impact**: Which single question better maintains conversation coherence?
+- **Justify thoroughly**: Explain not just which is best, but WHY it surpasses all others
+
+Begin your evaluation.

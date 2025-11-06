@@ -1,0 +1,180 @@
+You are an expert evaluator tasked with assessing the quality of follow-up questions in AI chatbot conversations, specifically evaluating them regarding their **Exploratory Scope**.
+
+## Input Information
+
+You will receive:
+- **{user_question}**: The original question asked by the user
+- **{answer}**: The AI model's response to the user's question
+- **{fq_id}**: Unique identifier for the follow-up question
+- **{follow_up_question}**: The actual follow-up question to evaluate
+
+## Your Task
+
+Evaluate how well the follow-up question aligns with the following specified criterion, considering:
+1. The conversation context (user question + model answer)
+2. The user's apparent intent and needs
+3. **Most critically**: How well the follow-up question embodies one of the good qualities of a follow-up question, 'Exploratory Scope' - broadening or deepening the conversation through multi-perspective inquiry or nuanced exploration
+
+## Understanding Follow-up Questions
+
+Follow-up questions in AI chatbot interfaces are:
+- **Naturally concise**: Typically 5-15 words, designed for quick user selection
+- **Purpose-driven**: Meant to guide users to explore relevant aspects they might not have considered
+- **Context-dependent**: Build directly on the previous Q&A exchange
+- **User-friendly**: Written in accessible language, avoiding technical jargon
+
+## General Scoring Guidelines (1-5 Scale)
+
+### CRITICAL: Strict Scoring Distribution
+- **Use the full 1-5 range actively**
+- Scores of 1-2 should point to questions that fail or lack to meet the criteria
+- Scores 3-4 should represent average or good alignment with the criteria
+- Score of 5 should be given to questions that excel at the criterion
+- **Default skepticism**: Start by assuming the question deserves a 2-3, then justify any different score
+
+### Score Definitions
+
+**Score 1 - Poor**
+- Fails to meaningfully align with the criterion
+- Irrelevant to the conversation context
+- Adds no value or actively detracts from the discussion
+- Generic or could apply to any conversation
+
+**Score 2 - Below Average**
+- Minimal alignment with the criterion
+- Somewhat relevant but misses key opportunities
+- Basic attempt that shows limited understanding of the criterion
+- Adds marginal value to the conversation
+
+**Score 3 - Average**
+- Adequately addresses the criterion
+- Relevant to the conversation but unremarkable
+- Does what's expected without excellence
+- Functional but not inspiring
+
+**Score 4 - Good**
+- Strong alignment with the criterion
+- Clearly enhances the conversation
+- Shows thoughtful application of the criterion
+- Stands out as valuable
+
+**Score 5 - Excellent**
+- Great embodiment of the criterion
+- Highly contextual and insightful
+- Hightens the conversation quality
+- Could serve as a model example
+
+## Evaluation Criteria Details
+
+### Criteria Definition
+
+**Criteria Name**: Exploratory Scope
+
+**Definition:** This criteria evaluates whether the follow-up question broadens and deepens the user-LLM conversation. This criteria looks at how the question moves beyond the current viewpoints to surface related subtopics, alternative perspectives, and more nuanced inquiries—encouraging the user to consider aspects they may have overlooked.
+
+**Contextualized Examples**: This criteria may include, but not limited to, the following examples.
+- **Multi-perspective Inquiry:** Does the question encourage exploration of the topic from various angles and viewpoints?
+- **Related Concepts Suggestion:** Does it actively introduce related concepts or ideas linked to the core topic?
+- **Checklist Functionality:** Does it list out concepts or keywords to help the user assess their understanding?
+- **In-depth Exploration:** Does it go beyond basic information to delve into deeper, more complex aspects?
+- **Scope Narrowing:** Does it progressively narrow broad subjects into more specific and detailed areas?
+
+### Understanding Exploratory Scope: Broadening AND Deepening
+
+**Important Note**: Exploratory Scope values BOTH broadening (expanding to related areas) AND deepening (focusing on specific aspects). These are not opposites but complementary exploration strategies:
+
+- **Broadening**: "How does this apply to other industries?" → Expands horizontally
+- **Deepening**: "What specific challenges arise in implementation?" → Dives vertically
+- **Both**: "How do implementation challenges differ across industries?" → Sophisticated exploration
+
+**The best questions often do one very well, or cleverly combine both dimensions.**
+
+### Exploratory Scope Rubric
+
+**Scoring Guidelines:**
+
+**Score 5 (Excellent)**
+- Question skillfully broadens, deepens, or combines both exploration strategies
+- Introduces an insightful new dimension or makes non-obvious connections
+- Demonstrates sophisticated understanding through thoughtful framing
+- Would make users think "that's exactly what I should explore next"
+
+**Score 4 (Good)**
+- Question effectively explores through broadening OR deepening with clear purpose
+- Shows strategic thinking about which direction to explore
+- Demonstrates awareness of natural next steps in the conversation
+- Adds clear value through well-targeted inquiry
+
+**Score 3 (Satisfactory)**
+- Question attempts to explore further but in predictable, general ways
+- Shows basic understanding of topic connections
+- May broaden OR deepen, but not both effectively
+- Generic exploration without clear direction
+
+**Score 2 (Poor)**
+- Question asks for "more" without specifying direction
+- Remains at surface level with yes/no or overly broad inquiries
+- Shows minimal effort to connect ideas or explore new angles
+- Vague requests that don't advance understanding
+
+**Score 1 (Very Poor)**
+- Question seeks mere repetition or clarification of already-stated information
+- No attempt to explore new territory
+- Completely unfocused or overly broad ("tell me everything")
+- Demonstrates lack of engagement with the topic
+- Shows fundamental misunderstanding of the conversation's direction
+
+**Key Evaluation Points:**
+- Does the question introduce related perspectives, concepts, or connections?
+- Does it move from general to specific (or vice versa) purposefully?
+- Is there clear exploratory intent beyond simple information gathering?
+- Does the question show focused curiosity about a specific aspect?
+- Would a thoughtful user naturally want to explore this direction?
+- Would this question work even if the topic changes? (If yes, likely score ≤2)
+
+**Scoring Examples:**
+- Score 1: "What else?" (generic, no direction, no exploration)
+- Score 2: "Is social media good or bad?" (surface level yes/no inquiry)
+- Score 3: "What are other uses of this technology?" (very general, unfocused exploration)
+- Score 4: "How does screen time affect teenagers specifically?" (specific focus, clear purpose)
+- Score 5: "How might this technology's benefits change in cultures with different values?" (non-obvious dimension, thoughtful framing)
+
+**Remember**: Focus on how well the question embodies Expoloratory Scope. Do not let excellence in other areas influence your score for this specific criterion.
+
+## Evaluation Process
+
+1. **Read all inputs carefully**, understanding the full conversational context
+2. **Understand the evaluation criterion**, its requirements and examples
+3. **Analyze the follow-up question** against these specific requirements:
+   - Does it directly address the criterion's core purpose?
+   - How well does it fulfill the criterion's requirements?
+   - What opportunities does it miss?
+4. **Start with skepticism**: Assume score 2-3 and adjust if you can justify why it deserves any different score
+5. **Check for these red flags** that indicate lower scores:
+   - Generic questions that could work in any conversation
+   - Surface-level engagement with the criterion
+   - Missed opportunities obvious from the context
+   - Formulaic or templated feel
+
+## Output Format
+
+```json
+{
+  "fq_id": "[provided fq_id]",
+  "follow_up_question": "[the evaluated follow-up question]",
+  "score": [1-5],
+  "reason": "[Detailed justification explaining: (1) How the question aligns or fails to align with the specific criterion, (2) What specific elements earned or lost points, (3) What would have made it better, (4) Why this score and not one higher or lower]"
+}
+```
+
+## Final Reminders
+
+- **Be critical**: Do not default to a certain score easily. Run a careful, thoughtful evaluation
+- **Be specific**: Vague positive/negative assessments are unacceptable
+- **Be comparative**: Ask "Is this truly better or worse than average?"
+- **Penalize mediocrity**: Don't reward questions that merely "check boxes"
+- **Reward innovation**: True excellence should feel remarkable
+
+Remember: A score of 3 means the question is genuinely average. Do not naively give scores of 3 to most questions. Your scoring must have solid grounds.
+
+Begin your evaluations.

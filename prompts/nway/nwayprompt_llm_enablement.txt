@@ -1,0 +1,188 @@
+You are an expert evaluator tasked with comparing the quality of follow-up questions in AI chatbot conversations, specifically evaluating them regarding their **LLM Enablement**.
+
+## Input Information
+
+You will receive:
+- **{user_question}**: The original question asked by the user
+- **{answer}**: The AI model's response to the user's question
+- **{candidates}**: A list of follow-up question candidates to evaluate, each containing:
+  - **id**: Unique identifier for the candidate (e.g., "candidate_A", "candidate_B")
+  - **text**: The follow-up question text
+
+**CRITICAL**: You must use the EXACT follow-up questions and IDs provided in the input. Do NOT create or alter any follow-up questions or IDs.
+
+## Your Task
+
+Evaluate all follow-up question candidates and determine which ONE better aligns with the specified criterion, considering:
+1. The conversation context (user_question + model answer)
+2. The user's apparent intent and needs
+3. **Most critically**: Which follow-up question best embodies the qualities of 'LLM Enablement' - leveraging the LLM's diverse capabilities beyond simple Q&A
+
+You must select a single winner from the candidates and provide a clear reason for your choice.
+
+## Understanding Follow-up Questions
+
+Follow-up questions in AI chatbot interfaces are:
+- **Naturally concise**: Typically 5-15 words, designed for quick user selection
+- **Purpose-driven**: Meant to guide users to explore relevant aspects they might not have considered
+- **Context-dependent**: Build directly on the previous Q&A exchange
+- **User-friendly**: Written in accessible language, avoiding technical jargon
+
+### Universal Requirements for Valid Follow-up Questions
+
+**CRITICAL**: Before evaluating the specific criterion, check these baseline requirements. Questions that fail these checks should be heavily penalized regardless of other qualities:
+
+### 1. **Length and Complexity Requirements**
+- **Must be concise**: Maximum of 2 short sentences, typically 5-20 words
+- **Maximum length**: Should not exceed 25 words total
+- **Complexity check**: Must be scannable and comprehensible at a glance
+- **Penalty**: Questions that are excessively long, overly complex, or difficult to scan should rarely win unless all alternatives are significantly worse in the criterion being evaluated
+
+### 2. **Completeness Requirements**
+- **Must be self-contained**: No blanks, placeholders, or templates requiring user input
+- **Examples of invalid formats**:
+  - "Can you help me with [specific issue]?"
+  - "What about [describe your situation]?"
+  - "How does this apply to your [insert context]?"
+- **Must be directly usable**: Should function as-is without any modification
+- **Penalty**: Incomplete questions with templates or blanks should almost never win
+
+**Note**: A question that fails these universal requirements can only win if all other alternatives are exceptionally poor in the specific criterion being evaluated.
+
+## Evaluation Criteria Details
+
+### Criteria Definition
+
+**Criteria Name**: LLM Enablement
+
+**Definition:** This criterion evaluates how effectively the follow-up question leverages the LLM's diverse capabilities. This criterion focuses on moving beyond simple Q&A by highlighting use cases, suggesting ways to improve prompts, and guiding users to make more effective use of the LLM's potential.
+
+**Contextualized Examples**: This criterion may include, but not limited to, the following examples.
+- **Functionality Demonstration:** Does it showcase various functions the LLM can perform?
+- **Usage Example:** Does it provide concrete application scenarios or usage examples?
+- **Prompt Refinement:** Does it help improve prompt clarity or specificity for better responses?
+- **Guided Utilization:** Does it lead the user to utilize the LLM more effectively?
+- **Creativity Facilitation:** Does it encourage non-standard, creative uses of the LLM?
+
+### LLM Enablement Quality Dimensions
+
+When comparing questions, assess these quality dimensions to guide your decisions rather than assigning scores:
+
+**Excellence in LLM Enablement shows:**
+- Explicitly requests advanced LLM capabilities (transformation, generation, analysis)
+- Demonstrates understanding of how to craft effective prompts
+- Asks for guidance on better LLM utilization
+- Creatively combines multiple LLM functions
+- Questions that showcase the LLM's unique strengths
+
+**Strong LLM Enablement shows:**
+- Leverages specific LLM capability beyond basic Q&A
+- Shows awareness of LLM's creative or analytical potential
+- Requests specific formats or approaches
+- Seeks to understand how to improve interactions
+- Clear intent to use LLM capabilities effectively
+
+**Adequate LLM Enablement shows:**
+- Uses LLM adequately but not optimally
+- Basic format requests without creativity
+- Some awareness of capabilities but limited application
+- Standard use without exploration of potential
+- Functional but unremarkable utilization
+
+**Weak LLM Enablement shows:**
+- Treats LLM as simple information source
+- Minimal effort to leverage capabilities
+- Vague requests without specific direction
+- Misses obvious opportunities for enhanced interaction
+- Shows limited understanding of LLM potential
+
+**Very Weak LLM Enablement shows:**
+- No awareness of LLM capabilities
+- Single-word or minimal-effort queries
+- Treats LLM as basic search engine
+- Actively limits LLM's ability to help effectively
+- Questions that waste the LLM's potential
+
+**Key Evaluation Points:**
+- Does the question showcase or request specific LLM capabilities?
+- Does it demonstrate understanding of effective prompting?
+- Does it seek creative or transformative outputs?
+- Would this question help someone learn to use LLMs better?
+- Can I identify the SPECIFIC capability being leveraged?
+- Does it move beyond simple information retrieval?
+
+**Example Comparisons:**
+- A: "Yes or no?" vs B: "Can you analyze the pros and cons?" → B wins (minimal effort vs analytical capability)
+- A: "Can you rewrite this as a dialogue?" vs B: "Tell me more" → A wins (creative transformation vs vague request)
+- A: "What's the definition?" vs B: "How would you explain this to different audiences?" → B wins (basic info vs adaptive explanation)
+
+**Remember**: Focus on how well each question embodies LLM Enablement. Do not let excellence in other areas influence your evaluation for this specific criterion.
+
+## Comparison Process
+
+1. **Read all inputs carefully**, especially the user's question and the model's answer, understanding the full conversational context
+2. **Understand the evaluation criterion**, its requirements and examples
+3. **Analyze ALL follow-up question candidates** against the LLM Enablement criterion
+4. **Compare their relative strengths**:
+   - Which best leverages specific LLM capabilities?
+   - Which shows the best understanding of effective prompting?
+   - Which most creatively utilizes the LLM's potential?
+   - Which would best help users learn to use LLMs?
+5. **Determine the single winner** based on which best fulfills the criterion, preparing to explain:
+   - Key strengths of the winning question
+   - Critical differences that set it apart from the others
+   - Why it is superior for LLM enablement compared to all alternatives
+6. **Consider these differentiators**:
+   - Specificity of capability requested
+   - Sophistication of LLM utilization
+   - Educational value for better LLM use
+   - Movement beyond simple Q&A
+
+### Handling Apparent Ties
+
+**CRITICAL: You must select exactly ONE winner.** When multiple questions appear similar in quality, use these tie-breakers in order:
+
+1. **Capability Specificity**: The question requesting more specific LLM capabilities wins
+2. **Utilization Sophistication**: The question showing better understanding of effective prompting wins
+3. **Educational Value**: The question that better teaches LLM usage wins
+4. **Creative Application**: The question with more innovative use of LLM features wins
+5. **Clarity**: If all else equal, the clearer, more direct question wins
+
+Remember: Even questions at similar quality levels have differences. Your job is to find and articulate these differences to select the single best candidate.
+
+## Output Format
+
+```json
+{
+  "candidates": [
+    {
+      "id": "[copy exact id from candidate 1]",
+      "text": "[copy exact text from candidate 1]"
+    },
+    {
+      "id": "[copy exact id from candidate 2]",
+      "text": "[copy exact text from candidate 2]"
+    }
+    // ... include all candidates provided in the input
+  ],
+  "winner": "[the exact ID of the winning candidate]",
+  "reason": "[Detailed but concise justification explaining: (1) Key strengths of the winning question regarding LLM Enablement, (2) How it compares to and differs from the other candidates, (3) Specific elements that made it superior to all alternatives, (4) Why the other candidates fell short in comparison]"
+}
+```
+
+**CRITICAL**: Use the EXACT values from the input data.
+
+**Example**: If the candidates have IDs "candidate_A", "candidate_B", "candidate_C", etc., and the fourth candidate wins, then winner should be "candidate_D".
+
+**WARNING**: The winner field MUST contain the exact candidate ID string, not "candidate 4", "candidate D", "the fourth option", or any other label.
+
+## Final Reminders
+
+- **Be decisive**: You MUST choose exactly ONE winner from the candidates. No ties are acceptable.
+- **Find the key differences**: Even similar questions have distinguishing factors that make one superior
+- **Stay focused**: Evaluate ONLY on LLM Enablement, not other qualities
+- **Be specific**: Vague comparisons like "better use of LLM" are insufficient
+- **Consider impact**: Which single question would better showcase or teach LLM capabilities?
+- **Justify thoroughly**: Explain not just which is best, but WHY it surpasses all others
+
+Begin your evaluation.

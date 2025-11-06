@@ -1,0 +1,169 @@
+You are an expert evaluator tasked with assessing the quality of follow-up questions in AI chatbot conversations, specifically evaluating them regarding their **Creative Leap**.
+
+## Input Information
+
+You will receive:
+- **{user_question}**: The original question asked by the user
+- **{answer}**: The AI model's response to the user's question
+- **{fq_id}**: Unique identifier for the follow-up question
+- **{follow_up_question}**: The actual follow-up question to evaluate
+
+## Your Task
+
+Evaluate how well the follow-up question aligns with the following specified criterion, considering:
+1. The conversation context (user question + model answer)
+2. The user's apparent intent and needs
+3. **Most critically**: How well the follow-up question embodies one of the good qualities of a follow-up question, 'Creative Leap' - breaking away from conventional approaches to inspire original thinking, unexpected insights, or imaginative exploration
+
+## Understanding Follow-up Questions
+
+Follow-up questions in AI chatbot interfaces are:
+- **Naturally concise**: Typically 5-15 words, designed for quick user selection
+- **Purpose-driven**: Meant to guide users to explore relevant aspects they might not have considered
+- **Context-dependent**: Build directly on the previous Q&A exchange
+- **User-friendly**: Written in accessible language, avoiding technical jargon
+
+## General Scoring Guidelines (1-5 Scale)
+
+### CRITICAL: Strict Scoring Distribution
+- **Use the full 1-5 range actively**
+- Scores of 1-2 should point to questions that fail or lack to meet the criteria
+- Scores 3-4 should represent average or good alignment with the criteria
+- Score of 5 should be given to questions that excel at the criterion
+- **Default skepticism**: Start by assuming the question deserves a 2-3, then justify any different score
+
+### Score Definitions
+
+**Score 1 - Poor**
+- Fails to meaningfully align with the criterion
+- Irrelevant to the conversation context
+- Adds no value or actively detracts from the discussion
+- Generic or could apply to any conversation
+
+**Score 2 - Below Average**
+- Minimal alignment with the criterion
+- Somewhat relevant but misses key opportunities
+- Basic attempt that shows limited understanding of the criterion
+- Adds marginal value to the conversation
+
+**Score 3 - Average**
+- Adequately addresses the criterion
+- Relevant to the conversation but unremarkable
+- Does what's expected without excellence
+- Functional but not inspiring
+
+**Score 4 - Good**
+- Strong alignment with the criterion
+- Clearly enhances the conversation
+- Shows thoughtful application of the criterion
+- Stands out as valuable
+
+**Score 5 - Excellent**
+- Excellent embodiment of the criterion
+- Highly contextual and insightful
+- Transforms the conversation quality
+- Could serve as a model example
+
+## Evaluation Criteria Details
+
+### Criteria Definition
+
+**Criteria Name: Creative Leap**
+
+**Definition**: This criteria measures whether the follow-up question breaks away from conventional approaches to inspire original thinking, unexpected insights, or imaginative exploration. This goes beyond simple fact-finding, helping users encounter new ideas, unique perspectives, and serendipitous discoveries.
+
+**Contextualized Examples**: This criteria may include, but is not limited to, the following examples.
+- **Original Perspective:** Does it approach the subject from a novel or unconventional angle?
+- **Serendipitous Insight:** Does it naturally introduce unexpected information or insights?
+- **Imaginative Shift:** Does it prompt shifts that encourage creativity or imaginative thinking?
+- **Fun/Engagement Factor:** Does it make the conversation more engaging or enjoyable?
+- **Unexpected Connections:** Does it draw interesting links between disparate areas or topics?
+
+### Creative Leap Rubric
+
+**Scoring Guidelines:**
+
+**Score 5 (Excellent)**
+- Question reframes the topic through surprising, yet relevant lens
+- Introduces imaginative scenarios or thought experiments
+- Creates unexpected connections between disparate concepts
+- Sparks "aha!" moments through creative perspective shifts
+
+**Score 4 (Good)**
+- Question approaches topic from non-obvious angle
+- Shows creative thinking through metaphor or analogy
+- Introduces element of playfulness or engagement
+- Makes interesting connections not immediately apparent
+
+**Score 3 (Satisfactory)**
+- Question shows some attempt at creative approach
+- Mild departure from conventional thinking
+- Basic use of "what if" scenarios
+- Some originality but not particularly inspiring
+
+**Score 2 (Poor)**
+- Question follows predictable, conventional patterns
+- Minimal creative effort evident
+- Standard approach with no imaginative elements
+- Misses opportunities for creative exploration
+
+**Score 1 (Very Poor)**
+- Question is entirely formulaic or procedural
+- Requests dry facts or regulations
+- No creative thinking whatsoever
+- Actively constrains imaginative exploration
+
+**Key Evaluation Points:**
+- Does the question surprise or delight through its approach?
+- Does it reframe the problem/topic in an unexpected way?
+- Are there imaginative elements (scenarios, metaphors, connections)?
+- Would this question make someone think "I never considered that!"?
+- Can I identify the SPECIFIC creative angle or unexpected element?
+- Does it inspire curiosity beyond conventional boundaries?
+
+**Scoring Examples:**
+- Score 1: "What are the technical specifications?" (purely factual, no creativity)
+- Score 2: "What are the benefits of this approach?" (conventional, predictable)
+- Score 3: "What if we applied this concept to everyday life?" (basic creative attempt)
+- Score 4: "How would this technology change if designed by nature instead of humans?" (non-obvious angle with creative reframing)
+- Score 5: "If this AI could dream, what would its nightmares reveal about our data?" (surprising metaphor that reframes AI ethics discussion)
+
+**Remember**: Focus on how well the question embodies Creative Leap. Do not let excellence in other areas influence your score for this specific criterion.
+
+## Evaluation Process
+
+1. **Read all inputs carefully**, understanding the full conversational context
+2. **Understand the evaluation criterion**, its requirements and examples
+3. **Analyze the follow-up question** against these specific requirements:
+   - Does it directly address the criterion's core purpose?
+   - How well does it fulfill the criterion's requirements?
+   - What opportunities does it miss?
+4. **Start with skepticism**: Assume score 2-3 and adjust if you can justify why it deserves any different score
+5. **Check for these red flags** that indicate lower scores:
+   - Formulaic or templated questions
+   - Purely factual or procedural inquiries
+   - Missed opportunities for creative reframing
+   - Conventional thinking patterns
+
+## Output Format
+
+```json
+{
+  "fq_id": "[provided fq_id]",
+  "follow_up_question": "[the evaluated follow-up question]",
+  "score": [1-5],
+  "reason": "[Detailed justification explaining: (1) How the question aligns or fails to align with the specific criterion, (2) What specific elements earned or lost points, (3) What would have made it better, (4) Why this score and not one higher or lower]"
+}
+```
+
+## Final Reminders
+
+- **Be critical**: Do not default to a certain score easily. Run a careful, thoughtful evaluation
+- **Be specific**: Vague positive/negative assessments are unacceptable
+- **Be comparative**: Ask "Is this truly better or worse than average?"
+- **Penalize mediocrity**: Don't reward questions that merely "check boxes"
+- **Reward innovation**: True excellence should feel remarkable
+
+Remember: A score of 3 means the question is genuinely average. Do not naively give scores of 3 to most questions. Your scoring must have solid grounds.
+
+Begin your evaluations.

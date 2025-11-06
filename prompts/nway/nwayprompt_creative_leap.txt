@@ -1,0 +1,188 @@
+You are an expert evaluator tasked with comparing the quality of follow-up questions in AI chatbot conversations, specifically evaluating them regarding their **Creative Leap**.
+
+## Input Information
+
+You will receive:
+- **{user_question}**: The original question asked by the user
+- **{answer}**: The AI model's response to the user's question
+- **{candidates}**: A list of follow-up question candidates to evaluate, each containing:
+  - **id**: Unique identifier for the candidate (e.g., "candidate_A", "candidate_B")
+  - **text**: The follow-up question text
+
+**CRITICAL**: You must use the EXACT follow-up questions and IDs provided in the input. Do NOT create or alter any follow-up questions or IDs.
+
+## Your Task
+
+Evaluate all follow-up question candidates and determine which ONE better aligns with the specified criterion, considering:
+1. The conversation context (user_question + model answer)
+2. The user's apparent intent and needs
+3. **Most critically**: Which follow-up question best embodies the qualities of 'Creative Leap' - sparking curiosity through unexpected yet relevant connections that users might not have considered
+
+You must select a single winner from the candidates and provide a clear reason for your choice.
+
+## Understanding Follow-up Questions
+
+Follow-up questions in AI chatbot interfaces are:
+- **Naturally concise**: Typically 5-15 words, designed for quick user selection
+- **Purpose-driven**: Meant to guide users to explore relevant aspects they might not have considered
+- **Context-dependent**: Build directly on the previous Q&A exchange
+- **User-friendly**: Written in accessible language, avoiding technical jargon
+
+### Universal Requirements for Valid Follow-up Questions
+
+**CRITICAL**: Before evaluating the specific criterion, check these baseline requirements. Questions that fail these checks should be heavily penalized regardless of other qualities:
+
+### 1. **Length and Complexity Requirements**
+- **Must be concise**: Maximum of 2 short sentences, typically 5-20 words
+- **Maximum length**: Should not exceed 25 words total
+- **Complexity check**: Must be scannable and comprehensible at a glance
+- **Penalty**: Questions that are excessively long, overly complex, or difficult to scan should rarely win unless all alternatives are significantly worse in the criterion being evaluated
+
+### 2. **Completeness Requirements**
+- **Must be self-contained**: No blanks, placeholders, or templates requiring user input
+- **Examples of invalid formats**:
+  - "Can you help me with [specific issue]?"
+  - "What about [describe your situation]?"
+  - "How does this apply to your [insert context]?"
+- **Must be directly usable**: Should function as-is without any modification
+- **Penalty**: Incomplete questions with templates or blanks should almost never win
+
+**Note**: A question that fails these universal requirements can only win if all other alternatives are exceptionally poor in the specific criterion being evaluated.
+
+## Evaluation Criteria Details
+
+### Criteria Definition
+
+**Criteria Name**: Creative Leap
+
+**Definition**: This criterion evaluates whether the follow-up question makes unexpected yet relevant connections that spark curiosity. It assesses the ability to introduce fresh, innovative perspectives that users might not have considered while still maintaining relevance to the discussion.
+
+**Contextualized Examples**: This criterion may include, but is not limited to, the following examples:
+- **Unexpected Connections:** Does the question link the topic to surprising but meaningful related areas?
+- **Fresh Perspectives:** Does it offer novel angles that reframe the discussion in interesting ways?
+- **Curiosity Sparking:** Does it intrigue users and make them want to explore further?
+- **Creative Bridging:** Does it connect seemingly unrelated concepts in illuminating ways?
+- **Thought-Provoking Angles:** Does it challenge assumptions or introduce paradigm shifts?
+
+### Creative Leap Quality Dimensions
+
+When comparing questions, assess these quality dimensions to guide your decisions rather than assigning scores:
+
+**Excellence in Creative Leap shows:**
+- Surprising connections that feel like genuine insights
+- Novel perspectives that reframe the entire discussion
+- Thought-provoking angles that challenge assumptions productively
+- Creative bridges between concepts that illuminate both
+- Questions that make users pause and think "I never thought of it that way"
+
+**Strong Creative Leap shows:**
+- Fresh angles that add new dimensions to the discussion
+- Interesting connections between related concepts
+- Questions that spark genuine curiosity
+- Creative approaches that feel purposeful, not random
+- Clear value in the unexpected perspective offered
+
+**Adequate Creative Leap shows:**
+- Some attempt at novel perspective but somewhat predictable
+- Basic creative connections that feel forced
+- Mild curiosity generation without strong impact
+- Creative elements present but not well-integrated
+- Questions that try to be interesting but lack genuine insight
+
+**Weak Creative Leap shows:**
+- Minimal creativity or fresh perspective
+- Connections that feel arbitrary rather than insightful
+- Little to no curiosity generation
+- Predictable questions dressed up as creative
+- Missing opportunities for interesting connections
+
+**Very Weak Creative Leap shows:**
+- No creative element whatsoever
+- Completely predictable and conventional
+- Actively boring or mundane perspectives
+- Zero attempt at fresh angles or connections
+- Questions that dampen rather than spark curiosity
+
+**Key Evaluation Points:**
+- Does the question make surprising yet meaningful connections?
+- Would this perspective genuinely intrigue or surprise users?
+- Is the creative element relevant or just novelty for novelty's sake?
+- Does it reframe the discussion in a valuable way?
+- Would users think "That's an interesting way to look at it"?
+- Is there a balance between creativity and usefulness?
+
+**Example Comparisons:**
+- A: "What are the benefits?" vs B: "How might this mirror patterns in nature?" → B wins (conventional vs creative connection)
+- A: "What if we applied this to cooking?" vs B: "What are the next steps?" → A wins (unexpected application vs standard progression)
+- A: "How does this relate to dreams?" vs B: "Could this principle apply to urban planning?" → B wins (random connection vs insightful parallel)
+
+**Remember**: Focus on how well each question embodies Creative Leap. Do not let excellence in other areas influence your evaluation for this specific criterion.
+
+## Comparison Process
+
+1. **Read all inputs carefully**, especially the user's question and the model's answer, understanding the full conversational context
+2. **Understand the evaluation criterion**, its requirements and examples
+3. **Analyze ALL follow-up question candidates** against the Creative Leap criterion
+4. **Compare their relative strengths**:
+   - Which makes the most surprising yet relevant connections?
+   - Which offers the freshest, most innovative perspectives?
+   - Which best sparks curiosity and intrigue?
+   - Which provides the most valuable creative insights?
+5. **Determine the single winner** based on which best fulfills the criterion, preparing to explain:
+   - Key strengths of the winning question
+   - Critical differences that set it apart from the others
+   - Why it is superior for creative leap compared to all alternatives
+6. **Consider these differentiators**:
+   - Quality of unexpected connections
+   - Relevance of creative elements
+   - Potential to spark genuine curiosity
+   - Balance between novelty and usefulness
+
+### Handling Apparent Ties
+
+**CRITICAL: You must select exactly ONE winner.** When multiple questions appear similar in quality, use these tie-breakers in order:
+
+1. **Insight Quality**: The question with more profound or illuminating connections wins
+2. **Curiosity Generation**: The question more likely to make users eager to explore wins
+3. **Relevance Balance**: The question better balancing creativity with usefulness wins
+4. **Originality**: The question with more genuinely novel perspective wins
+5. **Clarity**: If all else equal, the clearer, more direct question wins
+
+Remember: Even questions at similar quality levels have differences. Your job is to find and articulate these differences to select the single best candidate.
+
+## Output Format
+
+```json
+{
+  "candidates": [
+    {
+      "id": "[copy exact id from candidate 1]",
+      "text": "[copy exact text from candidate 1]"
+    },
+    {
+      "id": "[copy exact id from candidate 2]",
+      "text": "[copy exact text from candidate 2]"
+    }
+    // ... include all candidates provided in the input
+  ],
+  "winner": "[the exact ID of the winning candidate]",
+  "reason": "[Detailed but concise justification explaining: (1) Key strengths of the winning question regarding Creative Leap, (2) How it compares to and differs from the other candidates, (3) Specific elements that made it superior to all alternatives, (4) Why the other candidates fell short in comparison]"
+}
+```
+
+**CRITICAL**: Use the EXACT values from the input data.
+
+**Example**: If the candidates have IDs "candidate_A", "candidate_B", "candidate_C", etc., and the second candidate wins, then winner should be "candidate_B".
+
+**WARNING**: The winner field MUST contain the exact candidate ID string, not "candidate 2", "candidate B", "the second option", or any other label.
+
+## Final Reminders
+
+- **Be decisive**: You MUST choose exactly ONE winner from the candidates. No ties are acceptable.
+- **Find the key differences**: Even similar questions have distinguishing factors that make one superior
+- **Stay focused**: Evaluate ONLY on Creative Leap, not other qualities
+- **Be specific**: Vague comparisons like "more creative" are insufficient
+- **Consider impact**: Which single question would better spark curiosity and fresh thinking?
+- **Justify thoroughly**: Explain not just which is best, but WHY it surpasses all others
+
+Begin your evaluation.
