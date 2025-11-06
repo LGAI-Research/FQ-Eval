@@ -1,6 +1,9 @@
 # FQ-Eval
+This is an official repository for **FQ-Eval Evaluation Dataset** built by **LG AI Research**, a user-centered evaluation dataset designed for assessing follow-up question generation in chat-LLM services, as described in *["FQ-Eval: Building Evaluation Dataset for User-centered Follow-up Question Generation (Seo et al., EMNLP 2025)"](https://aclanthology.org/2025.emnlp-industry.188/)*.  
 
-This is an official repository for FQ-Eval Evaluation Dataset built by LG AI Research, a user-centered evaluation dataset designed for assessing follow-up question generation in chat-LLM services, as described in “FQ-Eval: Building Evaluation Dataset for User-centered Follow-up Question Generation” (Seo et al., 2025). FQ-Eval is developed by incorporating realistic chat-LLM usage scenarios and five distinct human-aligned criteria, each reflecting user expectations of effective follow-up questions. For the details regarding dataset construction and various experimental results, please refer to the official paper. 
+FQ-Eval is developed by incorporating realistic chat-LLM usage scenarios and five distinct human-aligned criteria, each reflecting user expectations of effective follow-up questions.  
+
+For the details regarding dataset construction and various experimental results, please refer to the official paper.
 
 In this repository, we provide:
 1) The official FQ-Eval dataset (`dataset/FQ-Eval.json`) and the evaluation-ready version, processed CSV file (`raw_data/fq_eval.csv`)
